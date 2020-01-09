@@ -5,13 +5,13 @@ This is an home assignment given to me on an interview
 the purpose of this is to make a simple search application for Ituens API
 
 ## Let's talk about the tech stuff
- - ASP.NET Core 2.2 Web application 
+ - :heart: ASP.NET Core 2.2 Web application 
  - React 16.6  (without hooks and functional components)
  - PostgresDB database with *Heroku Hosting* when in production
  - Local DB when in Development
  - Hosting with [Heroku Hosting](https://www.heroku.com/home)
- - The app is fully Dockerized with [Docker](https://www.docker.com/)(Linux)!
- - [ITunes API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
+ - :whale: The app is fully Dockerized with [Docker](https://www.docker.com/)(Linux)!
+ - :musical_note: [ITunes API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
 
 
 ## Live Demo
@@ -20,12 +20,13 @@ The *loading* would probably be a little slow for you because I don't pay for He
 
 ## Description
 
-the usage of the app is simple,
-insert a query, search it, and show up to 25 results in a page
-add a button for top ten searches (meaning you need to keep track of searches - thats where the database steps in)
-each item that is shown is clickable and would lead you to another page that would show more information about the item
-If it’s a video the screen should display the video in the page
-If it’s a audio the should display the audio player in the page
+the usage of the app is simple:
+- insert a query, search it, and show up to 25 results in a page.
+- add a button for top ten searches (meaning you need to keep track of searches - thats where the database steps in)
+- each item that is shown is clickable and would lead you to another page that would show more information about the item
+- If it’s a video the screen should display the video in the page
+- If it’s a audio the should display the audio player in the page
+
 
 ## Run it!
 
