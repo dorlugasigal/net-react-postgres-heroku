@@ -1,7 +1,7 @@
 FROM node:10.13.0-alpine as node
 WORKDIR /ClientApp
 COPY public ./public
-COPY src/index.tsx ./src/index.tsx
+COPY src/index.jsx ./src/index.jsx
 COPY package*.json ./
 RUN npm install --progress=true --loglevel=silent
 COPY src ./src
