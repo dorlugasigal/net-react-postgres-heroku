@@ -67,6 +67,6 @@ MIT © Richard McRichface
 13. **heroku buildpacks:set jincod/dotnetcore**
 14. **heroku buildpacks:add --index 1 heroku/nodejs**
 15. **git push heroku master** \ sync heroku with github repository for automatic deploying
-16 *now you have yourself a fully dockerized asp.NET Core React App, Yay*
+16  *now you have yourself a fully dockerized asp.NET Core React App, Yay*
 17. *start coding your Client app and your server*
 18. if needed: you can add a [heroku postgresDB ](https://www.heroku.com/postgres)
