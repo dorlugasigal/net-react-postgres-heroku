@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
 export class Home extends Component {
-    static displayName = Home.name
 
     constructor(props) {
         super(props)
