@@ -1,5 +1,5 @@
 {
-  "scripts": {
-    "postinstall": "cd net-react-postgres-heroku && npm install"
-  }
+  //"scripts": {
+  //  "postinstall": "cd net-react-postgres-heroku && npm install"
+  //}
 }
