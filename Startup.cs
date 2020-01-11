@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using net_react_postgres.Library.Response;
 using net_react_postgres.Postgres;
+using net_react_postgres.Library.Services;
 using Npgsql;
 
 namespace net_react_postgres
@@ -25,7 +27,7 @@ namespace net_react_postgres
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddHttpClient<ISearchService<ITunesItem>, ITunesSearchService>();
             services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
             {
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
