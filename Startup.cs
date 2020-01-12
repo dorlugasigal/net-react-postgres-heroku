@@ -26,7 +26,14 @@ namespace net_react_postgres
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+            {
+                options.CacheProfiles.Add("Default100",
+                    new CacheProfile()
+                    {
+                        Duration = 100
+                    });
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddHttpClient<ISearchService<ITunesItem>, ITunesSearchService>();
             services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
             {

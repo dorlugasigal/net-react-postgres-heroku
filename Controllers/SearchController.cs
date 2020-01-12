@@ -10,6 +10,7 @@ using net_react_postgres.Services;
 
 namespace net_react_postgres.Controllers
 {
+    [ResponseCache(CacheProfileName = "Default100")]
     [Route("api/[controller]")]
     [ApiController]
     public class SearchController : ControllerBase
