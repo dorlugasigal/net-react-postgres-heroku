@@ -1,4 +1,5 @@
 .itemContainer {
+    cursor: pointer;
     flex: 1 0 25%;
     max-width: 33%;
     width: 50%;

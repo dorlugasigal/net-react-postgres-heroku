@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactPaginate from 'react-paginate'
 import { ItemsList } from './ItemsList'
-import './SearchResults.css'
+import './styles/SearchResults.css'
 export class SearchResults extends Component {
     constructor(props) {
         super(props)

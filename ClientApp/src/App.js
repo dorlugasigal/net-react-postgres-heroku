@@ -13,11 +13,7 @@ export default class App extends Component {
             <Layout>
                 <Route exact path="/" component={Home} />
                 <Route path="/fetch-data" component={FetchData} />
-                <Route
-                    exact
-                    path="/details/:id"
-                    render={props => <Details />}
-                />
+                <Route exact path="/details" render={props => <Details />} />
             </Layout>
         )
     }

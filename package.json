@@ -2,5 +2,12 @@
   "name": "react-app",
   "author": "Dariel Ramos <dramosv90@gmail.com>",
   "description": "",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "mobx": "^5.15.1",
+    "mobx-react": "^6.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-mobx": "^2.0.0"
+  }
 }

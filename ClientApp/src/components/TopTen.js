@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './topTen.css'
+import './styles/topTen.css'
 export class TopTen extends Component {
     constructor(props) {
         super(props)

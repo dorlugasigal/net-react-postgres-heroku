@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
-import './Home.css'
+import './styles/Home.css'
 import { topTen, TopTen } from './TopTen'
 // import ls from 'local-storage'
 
