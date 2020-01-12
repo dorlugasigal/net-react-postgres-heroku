@@ -5,6 +5,6 @@ namespace net_react_postgres.Services
 {
     public interface ISearchService<T> where T : class
     {
-        Task<SearchResponse<T>> SearchAsync(SearchParams searchParam);
+        Task<PagedSearchResponse<T>> SearchAsync(PagedSearchParams searchParam);
     }
 }

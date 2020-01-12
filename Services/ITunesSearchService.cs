@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
+using net_react_postgres.Helpers;
 using net_react_postgres.Response;
 using Newtonsoft.Json;
 
@@ -13,14 +16,16 @@ namespace net_react_postgres.Services
         private const string BaseUrl = "https://itunes.apple.com";
         private readonly ILogger<ITunesSearchService> _log;
         private readonly HttpClient _client;
+        private readonly IMapper _mapper;
 
-        public ITunesSearchService(ILogger<ITunesSearchService> log, HttpClient client)
+        public ITunesSearchService(ILogger<ITunesSearchService> log, HttpClient client, IMapper mapper)
         {
             _log = log;
             _client = client;
+            _mapper = mapper;
         }
 
-        public async Task<SearchResponse<ITunesItem>> SearchAsync(SearchParams searchParam)
+        public async Task<PagedSearchResponse<ITunesItem>> SearchAsync(PagedSearchParams searchParam)
         {
             try
             {
@@ -37,29 +42,36 @@ namespace net_react_postgres.Services
 
                 if (!httpResponse.IsSuccessStatusCode)
                 {
-                    return new SearchResponse<ITunesItem>()
+                    return new PagedSearchResponse<ITunesItem>()
                     {
                         ErrorMessage = "An Error Occured when trying to fetch data",
                         ResultCount = 0,
                         Success = false,
-                        Results = new List<ITunesItem>()
+                        Results = PagedList<ITunesItem>.Create(new ITunesItem[0], 0, 0)
                     };
                 }
 
                 var content = await httpResponse.Content.ReadAsStringAsync();
                 var response = JsonConvert.DeserializeObject<SearchResponse<ITunesItem>>(content);
+
                 response.Success = true;
-                return response;
+                var res = _mapper.Map<PagedSearchResponse<ITunesItem>>(response);
+                res.Results = PagedList<ITunesItem>.Create(response.Results, searchParam.PageNumber, searchParam.PageSize);
+                res.TotalCount = response.Results.Count;
+                res.PageSize = searchParam.PageSize;
+                res.CurrentPage = searchParam.PageNumber;
+                res.TotalPages = (int)Math.Ceiling(res.TotalCount / (double)res.PageSize);
+                return res;
             }
             catch (Exception e)
             {
                 _log.LogError(e, $"Internal Error when Searching for an item : {searchParam.Term}");
-                return new SearchResponse<ITunesItem>()
+                return new PagedSearchResponse<ITunesItem>()
                 {
                     ErrorMessage = $"A Server Error Occured when trying to SearchAsync Item : {searchParam.Term}",
                     ResultCount = 0,
                     Success = false,
-                    Results = new List<ITunesItem>()
+                    Results = PagedList<ITunesItem>.Create(new ITunesItem[0], 0, 0)
                 };
             }
         }

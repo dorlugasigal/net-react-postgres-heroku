@@ -6,6 +6,6 @@
         public Output Output { get; set; } = Output.Json;
         public Media Media { get; set; } = Media.All;
         public ResultEntity ResultEntity { get; set; } = ResultEntity.All;
-        public int Limit { get; set; } = 25;
+        public int Limit { get; set; } = 200;
     }
 }

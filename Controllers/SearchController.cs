@@ -25,7 +25,7 @@ namespace net_react_postgres.Controllers
         }
 
         [HttpGet]
-        public async Task<SearchResponse<ITunesItem>> Search([FromQuery]SearchParams searchParam)
+        public async Task<PagedSearchResponse<ITunesItem>> Search([FromQuery]PagedSearchParams searchParam)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace net_react_postgres.Controllers
             {
                 _log.LogError(ex, "An error occurred while performing search..");
 
-                return new SearchResponse<ITunesItem>
+                return new PagedSearchResponse<ITunesItem>
                 {
                     Success = false,
                     ErrorMessage = "An internal server error occurred."

@@ -10,6 +10,7 @@ export class Home extends Component {
         super(props)
         this.state = {
             query: null,
+            page: -1,
             searchResultData: [],
             loading: false,
             toggleTopTen: false,
@@ -24,12 +25,11 @@ export class Home extends Component {
         localStorage.setItem('topTen', JSON.stringify(ls))
         console.log(localStorage.getItem('topTen'))
     }
-    handleSearch(data) {
-        if (data && data !== this.state.query) {
+    handleSearch(data, page) {
+        if (data && data !== this.state.query || (data && data === this.state.query && this.state.page !== page)) {
             this.addToHistory(data)
-            this.setState({ loading: true })
-            this.setState({ query: data })
-            fetch('api/search?term=' + data)
+            this.setState({ loading: true, query: data, page })
+            fetch('api/search?term=' + data + "&pagenumber=" + page)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({
@@ -65,7 +65,7 @@ export class Home extends Component {
                     </div>
                     <div className="searchFormWrapper">
                         <SearchForm
-                            onSubmit={this.handleSearch}
+                            onSubmit={(data) => { this.handleSearch(data, 1) }}
                         ></SearchForm>
                     </div>
                 </div>
@@ -74,6 +74,7 @@ export class Home extends Component {
                 {this.state.query && !this.state.loading && (
                     <div>
                         <SearchResults
+                            onPageChange={(page) => { this.handleSearch(this.state.query, page.selected) }}
                             data={this.state.searchResultData}
                         ></SearchResults>
                     </div>

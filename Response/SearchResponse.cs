@@ -7,5 +7,7 @@ namespace net_react_postgres.Response
     {
         public int ResultCount { get; set; }
         public List<T> Results { get; set; }
+
+
     }
 }

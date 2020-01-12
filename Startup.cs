@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,8 @@ namespace net_react_postgres
                         Duration = 100
                     });
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddHttpClient<ISearchService<ITunesItem>, ITunesSearchService>();
             services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
             {

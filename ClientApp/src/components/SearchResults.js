@@ -5,13 +5,12 @@ import './styles/SearchResults.css'
 export class SearchResults extends Component {
     constructor(props) {
         super(props)
-        //this.props.perPage
-        this.state = {
-            offset: 0, //current page
-            pageCount: 2,
-        }
+        this.props.perPage
+        this.handlePageClick = this.handlePageClick.bind(this)
     }
-
+    handlePageClick(data) {
+        this.props.onPageChange(data)
+    }
     componentDidMount() { }
     renderData() {
         return this.props.data.results && this.props.data.results.length > 0 ? (
@@ -22,7 +21,7 @@ export class SearchResults extends Component {
                         previousLabel={'PREVIOUS'}
                         nextLabel={'NEXT'}
                         breakClassName={'break-me'}
-                        pageCount={this.state.pageCount} //should be the page amount
+                        pageCount={this.props.TotalPages}
                         marginPagesDisplayed={2}
                         pageRangeDisplayed={5}
                         onPageChange={this.handlePageClick}
