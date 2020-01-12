@@ -33,10 +33,14 @@ export class TopTen extends Component {
     }
 
     render() {
-        return this.state.firstTen.map((item, index) => (
-            <div className="topTenItem" key={index}>
-                {index + 1}. {item.key}
-            </div>
-        ))
+        return this.state.firstTen.length > 0 ? (
+            this.state.firstTen.map((item, index) => (
+                <div className="topTenItem" key={index}>
+                    {index + 1}. {item.key}
+                </div>
+            ))
+        ) : (
+            <div>No Searches Yet</div>
+        )
     }
 }
