@@ -1,0 +1,7 @@
+.topTenItem {
+    text-align: center;
+    margin-top: 3px;
+    background-color: rgb(232, 232, 232);
+    font-size: small;
+    border-radius: 30px;
+}

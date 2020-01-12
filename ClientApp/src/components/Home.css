@@ -1,3 +1,27 @@
+.searchWrapper {
+    display: flex;
+}
+.searchFormWrapper {
+    flex: 6;
+}
+.topTenWrapper {
+    border-right: 1px purple solid;
+    margin: 30px;
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    .searchWrapper {
+        display: flex;
+        text-align: center;
+        flex-direction: column-reverse;
+    }
+    .topTenWrapper {
+        border-right: 0px;
+        margin: 0px;
+        flex: 1;
+    }
+}
 .loader {
     color: purple;
     font-size: 90px;
