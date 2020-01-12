@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
-import { ToastsContainer, ToastsStore } from 'react-toasts'
+import { ToastProvider, useToasts } from 'react-toast-notifications'
+
 export class Home extends Component {
+    const { addToast } = useToasts();
+
     constructor(props) {
         super(props)
         this.state = { query: null, searchResultData: [] }
@@ -17,26 +20,12 @@ export class Home extends Component {
                             fetch('api/search?term=' + data)
                                 .then(response => response.json())
                                 .then(data => {
-                                    if (data.success) {
-                                        this.setState({
-                                            searchResultData: data,
-                                        })
-                                        if (data.resultCount > 0) {
-                                            ToastsStore.success(
-                                                `found ${data.resultCount} results!`
-                                            )
-                                        } else {
-                                            ToastsStore.warning(
-                                                'No results found'
-                                            )
-                                        }
-                                        console.log('Success:', data)
-                                    } else {
-                                        ToastsStore.error(data.errorMessage)
-                                    }
+                                    this.setState({
+                                        searchResultData: data,
+                                    })
+                                    console.log('Success:', data)
                                 })
                                 .catch(error => {
-                                    ToastsStore.error('an error occured')
                                     console.error('Error:', error)
                                 })
                         }
@@ -50,7 +39,6 @@ export class Home extends Component {
                         ></SearchResults>
                     </div>
                 )}
-                <ToastsContainer store={ToastsStore} />
             </div>
         )
     }
