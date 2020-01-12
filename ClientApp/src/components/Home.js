@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
 import './styles/Home.css'
-import { topTen, TopTen } from './TopTen'
+import { TopTen } from './TopTen'
 // import ls from 'local-storage'
 
 export class Home extends Component {

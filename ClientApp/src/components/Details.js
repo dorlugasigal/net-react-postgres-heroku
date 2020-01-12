@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
 
-@observer
-class Details extends Component {
+export class Details extends Component {
     constructor(props) {
         super(props)
         this.state = { item: {} }
@@ -76,4 +74,3 @@ class Details extends Component {
         )
     }
 }
-export default Details

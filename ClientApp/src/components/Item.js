@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './styles/Item.css'
-import { observer } from 'mobx-react'
 
 export class Item extends Component {
     constructor(props) {
