@@ -7,14 +7,13 @@ RUN npm install --progress=true --loglevel=silent
 COPY src ./src
 RUN npm run build
 
+COPY . ./
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-alpine AS builder
 RUN dotnet restore
 RUN dotnet publish -c Release -r linux-musl-x64 -o /app
 
-WORKDIR . ./net-react-postgres.Library
-RUN dotnet restore
-RUN dotnet publish -c Release -r linux-musl-x64 -o /app
+
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine
 WORKDIR /app
