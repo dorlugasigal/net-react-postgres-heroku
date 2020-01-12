@@ -15,6 +15,7 @@ export class Home extends Component {
             toggleTopTen: false,
         }
         this.toggleTopTenView = this.toggleTopTenView.bind(this)
+        this.handleSearch = this.handleSearch.bind(this)
     }
 
     async addToHistory(term) {
@@ -22,6 +23,25 @@ export class Home extends Component {
         ls[term] = ls[term] + 1 || 1
         localStorage.setItem('topTen', JSON.stringify(ls))
         console.log(localStorage.getItem('topTen'))
+    }
+    handleSearch(data) {
+        if (data && data !== this.state.query) {
+            this.addToHistory(data)
+            this.setState({ loading: true })
+            this.setState({ query: data })
+            fetch('api/search?term=' + data)
+                .then(response => response.json())
+                .then(data => {
+                    this.setState({
+                        searchResultData: data,
+                        loading: false,
+                    })
+                    console.log('Success:', data)
+                })
+                .catch(error => {
+                    console.error('Error:', error)
+                })
+        }
     }
     toggleTopTenView() {
         this.setState({
@@ -45,25 +65,7 @@ export class Home extends Component {
                     </div>
                     <div className="searchFormWrapper">
                         <SearchForm
-                            onSubmit={data => {
-                                if (data && data !== this.state.query) {
-                                    this.addToHistory(data)
-                                    this.setState({ loading: true })
-                                    this.setState({ query: data })
-                                    fetch('api/search?term=' + data)
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            this.setState({
-                                                searchResultData: data,
-                                                loading: false,
-                                            })
-                                            console.log('Success:', data)
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error)
-                                        })
-                                }
-                            }}
+                            onSubmit={this.handleSearch}
                         ></SearchForm>
                     </div>
                 </div>

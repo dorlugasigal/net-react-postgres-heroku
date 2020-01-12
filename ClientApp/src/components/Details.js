@@ -1,76 +1,60 @@
 import React, { Component } from 'react'
-
-export class Details extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { item: {} }
-    }
-    componentDidMount() {
-        debugger
-        const { item } = this.props.location.item
-        this.setState({ item })
-    }
-
+import { connect } from "react-redux"
+import "./styles/Details.css"
+class Details extends Component {
     render() {
-        return (
-            <div className="details-wrapper">
-                {this.props.store.item}
-                {this.props.store.item}
-                {this.props.store.item}
-                {this.props.store.item}
-                {this.props.store.item}
-                {this.props.store.item}
-                {this.props.store.item}
-                <div className="itemWrapper">
-                    <div className="thumbnail">
-                        <img src={this.state.item.artworkUrl100} alt="" />
+        return (<div>
+
+            {this.props.item &&
+                <div className="detailsWrapper">
+                    <div className="thumbnailWrapper">
+                        <img src={this.props.item.artworkUrl100} alt="" />
                     </div>
-                    <div className="content">
-                        <h6>{this.state.item.trackName}</h6>
-                        {this.state.item.artistName}
+                    {this.props.item.trackName && (
+                        <div className="itemInfo">
+                            <span><b>Track Name:</b> {this.props.item.trackName}</span>
+                        </div>
+                    )}
+                    {this.props.item.artistName && (
+                        <div className="itemInfo">
+                            <span><b>Artist:</b> {this.props.item.artistName}</span>
+                        </div>
+                    )}
+                    {this.props.item.collectionName && (
+                        <div className="itemInfo">
+                            <span><b>Collection:</b> {this.props.item.collectionName}</span>
+                        </div>
+                    )}
+                    <div className="details-preview">
+                        {this.props.item.kind === 'song' && (
+                            <div className="media">
+                                <audio controls>
+                                    <source
+                                        src={this.props.item.previewUrl}
+                                    />
+                                </audio>
+                            </div>
+                        )}
+                        {this.props.item.kind === 'feature-movie' && (
+                            <div className="media">
+                                <video controls>
+                                    <source
+                                        src={this.props.item.previewUrl}
+                                    />
+                                </video>
+                            </div>
+                        )}
                     </div>
-                </div>
-                <div className="details-expanded">
-                    {this.state.item.trackName && (
-                        <div className="detail-line">
-                            {/* <img src={TrackIcon} /> */}
-                            <span>{this.state.item.trackName}</span>
-                        </div>
-                    )}
-                    {this.state.item.artistName && (
-                        <div className="detail-line">
-                            {/* <img src={ArtistIcon} /> */}
-                            <span>{this.state.item.artistName}</span>
-                        </div>
-                    )}
-                    {this.state.item.collectionName && (
-                        <div className="detail-line">
-                            {/* <img src={AlbumIcon} /> */}
-                            <span>{this.state.item.collectionName}</span>
-                        </div>
-                    )}
-                </div>
-                <div className="details-preview">
-                    {this.state.item.kind === 'song' && (
-                        <div className="preview">
-                            <audio controls>
-                                <source
-                                    src={this.state.item.results.previewUrl}
-                                />
-                            </audio>
-                        </div>
-                    )}
-                    {this.state.item.kind === 'music-video' && (
-                        <div className="preview">
-                            <video controls>
-                                <source
-                                    src={this.state.item.results.previewUrl}
-                                />
-                            </video>
-                        </div>
-                    )}
-                </div>
-            </div>
+                </div>}
+            {!this.props.item && <div> No item selected</div>}
+        </div>
+
+
         )
     }
 }
+const mapStateToProps = (state) => ({
+    item: state.item
+})
+
+export default connect(mapStateToProps)(Details) 

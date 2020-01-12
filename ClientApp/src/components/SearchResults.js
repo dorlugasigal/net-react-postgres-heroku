@@ -12,7 +12,7 @@ export class SearchResults extends Component {
         }
     }
 
-    componentDidMount() {}
+    componentDidMount() { }
     renderData() {
         return this.props.data.results && this.props.data.results.length > 0 ? (
             <div>
@@ -34,10 +34,10 @@ export class SearchResults extends Component {
                 <ItemsList data={this.props.data.results}></ItemsList>
             </div>
         ) : (
-            <div>
-                <h3>No Results</h3>
-            </div>
-        )
+                <div>
+                    <h3>No Results</h3>
+                </div>
+            )
     }
 
     render() {
