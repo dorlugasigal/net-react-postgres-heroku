@@ -1,8 +1,0 @@
-C:\Users\dorlu\Desktop\net-react-postgres.Library\bin\Debug\netcoreapp3.1\net-react-postgres.Library.deps.json
-C:\Users\dorlu\Desktop\net-react-postgres.Library\bin\Debug\netcoreapp3.1\net-react-postgres.Library.dll
-C:\Users\dorlu\Desktop\net-react-postgres.Library\bin\Debug\netcoreapp3.1\net-react-postgres.Library.pdb
-C:\Users\dorlu\Desktop\net-react-postgres.Library\obj\Debug\netcoreapp3.1\net-react-postgres.Library.csprojAssemblyReference.cache
-C:\Users\dorlu\Desktop\net-react-postgres.Library\obj\Debug\netcoreapp3.1\net-react-postgres.Library.AssemblyInfoInputs.cache
-C:\Users\dorlu\Desktop\net-react-postgres.Library\obj\Debug\netcoreapp3.1\net-react-postgres.Library.AssemblyInfo.cs
-C:\Users\dorlu\Desktop\net-react-postgres.Library\obj\Debug\netcoreapp3.1\net-react-postgres.Library.dll
-C:\Users\dorlu\Desktop\net-react-postgres.Library\obj\Debug\netcoreapp3.1\net-react-postgres.Library.pdb

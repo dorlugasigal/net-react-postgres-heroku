@@ -1,5 +1,6 @@
 {
-  //"scripts": {
-  //  "postinstall": "cd net-react-postgres-heroku && npm install"
-  //}
+  "name": "react-app",
+  "author": "Dariel Ramos <dramosv90@gmail.com>",
+  "description": "",
+  "version": "0.1.0"
 }
