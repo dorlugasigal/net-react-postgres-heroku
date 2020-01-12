@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
-import { ToastProvider, useToasts } from 'react-toast-notifications'
 
 export class Home extends Component {
-    const { addToast } = useToasts();
-
     constructor(props) {
         super(props)
         this.state = { query: null, searchResultData: [] }
