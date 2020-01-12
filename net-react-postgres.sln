@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net-react-postgres", "net-react-postgres-heroku\net-react-postgres.csproj", "{39DF92CD-E92C-4D84-B704-3B9EC3A8FC86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net-react-postgres", "net-react-postgres\net-react-postgres.csproj", "{39DF92CD-E92C-4D84-B704-3B9EC3A8FC86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net-react-postgres.Library", "net-react-postgres.Library\net-react-postgres.Library.csproj", "{0AEBF804-FF7C-4780-A7D8-A6DDA23A7E33}"
 EndProject
