@@ -19,6 +19,8 @@ the purpose of this is to make a simple search application for Ituens API
 ## Live Demo
 you can see the application live [right here!](https://net-react-postgres.herokuapp.com/)
 The *loading* would probably be a little slow for you because I don't pay for Heroku Hosting (I use the free and slow one)
+![Web Demo](https://s5.gifyu.com/images/recorda031bc6a38ef86b4.gif)
+![Mobile Demo](https://s5.gifyu.com/images/mobile.gif)
 
 ## Description
 
