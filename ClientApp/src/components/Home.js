@@ -3,6 +3,8 @@ import { SearchForm } from './SearchForm'
 import { SearchResults } from './SearchResults'
 import './styles/Home.css'
 import { TopTen } from './TopTen'
+import ReactPaginate from 'react-paginate'
+
 // import ls from 'local-storage'
 
 export class Home extends Component {
@@ -26,10 +28,16 @@ export class Home extends Component {
         console.log(localStorage.getItem('topTen'))
     }
     handleSearch(data, page) {
-        if (data && data !== this.state.query || (data && data === this.state.query && this.state.page !== page)) {
-            this.addToHistory(data)
+        if (
+            (data && data !== this.state.query) ||
+            (data && data === this.state.query && this.state.page !== page)
+        ) {
+            if (data !== this.state.query) {
+                this.addToHistory(data)
+            }
             this.setState({ loading: true, query: data, page })
-            fetch('api/search?term=' + data + "&pagenumber=" + page)
+            console.log('api/search?term=' + data + '&pagenumber=' + page)
+            fetch('api/search?term=' + data + '&pagenumber=' + page)
                 .then(response => response.json())
                 .then(data => {
                     this.setState({
@@ -65,7 +73,9 @@ export class Home extends Component {
                     </div>
                     <div className="searchFormWrapper">
                         <SearchForm
-                            onSubmit={(data) => { this.handleSearch(data, 1) }}
+                            onSubmit={data => {
+                                this.handleSearch(data, 1)
+                            }}
                         ></SearchForm>
                     </div>
                 </div>
@@ -73,8 +83,32 @@ export class Home extends Component {
                 {this.state.loading && <div class="loader">Loading...</div>}
                 {this.state.query && !this.state.loading && (
                     <div>
+                        <div className="paginateWrapper">
+                            <ReactPaginate
+                                forcePage={
+                                    this.state.searchResultData.currentPage - 1
+                                }
+                                id="react-paginate"
+                                previousLabel={'PREVIOUS'}
+                                nextLabel={'NEXT'}
+                                breakClassName={'break-me'}
+                                pageCount={
+                                    this.state.searchResultData.totalPages
+                                }
+                                marginPagesDisplayed={2}
+                                pageRangeDisplayed={5}
+                                onPageChange={data =>
+                                    this.handleSearch(
+                                        this.state.query,
+                                        data.selected + 1
+                                    )
+                                }
+                                containerClassName={'pagination'}
+                                subContainerClassName={'pages pagination'}
+                                activeClassName={'active'}
+                            />
+                        </div>
                         <SearchResults
-                            onPageChange={(page) => { this.handleSearch(this.state.query, page.selected) }}
                             data={this.state.searchResultData}
                         ></SearchResults>
                     </div>
