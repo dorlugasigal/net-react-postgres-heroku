@@ -5,7 +5,11 @@ using Newtonsoft.Json;
 
 namespace net_react_postgres.Utils
 {
-    public class ResponseParser<T> :IResponseParser<T> where T : class
+    /// <summary>
+    /// Class To help Parse an HTTP Response to a specific T Type
+    /// </summary>
+    /// <typeparam name="T"> has to be a class, to be serialized </typeparam>
+    public class ResponseParser<T> : IResponseParser<T> where T : class
     {
         private readonly ILogger _logger;
 
@@ -27,5 +31,5 @@ namespace net_react_postgres.Utils
         }
     }
 
-   
+
 }

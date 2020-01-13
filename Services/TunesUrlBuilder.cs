@@ -5,6 +5,9 @@ using System.Text;
 
 namespace net_react_postgres.Services
 {
+    /// <summary>
+    /// Builder pattern to ease Url creating
+    /// </summary>
     public class TunesUrlBuilder
     {
         private StringBuilder _url;

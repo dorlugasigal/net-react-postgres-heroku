@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using net_react_postgres.Postgres.Models;
 
 namespace net_react_postgres.Postgres
 {
@@ -9,8 +8,8 @@ namespace net_react_postgres.Postgres
             : base(options)
         {
         }
-
-        public DbSet<Student> Students { get; set; }
+        //Bonus, not used
+        //public DbSet<Users> Users { get; set; }
     }
 
 }

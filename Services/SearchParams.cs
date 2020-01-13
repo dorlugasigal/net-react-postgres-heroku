@@ -1,5 +1,9 @@
 ﻿namespace net_react_postgres.Services
 {
+
+    /// <summary>
+    /// types of Query Parameters that ITunes API can accept
+    /// </summary>
     public class SearchParams
     {
         public string Term { get; set; }

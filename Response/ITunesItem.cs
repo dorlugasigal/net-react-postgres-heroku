@@ -1,5 +1,8 @@
 ﻿namespace net_react_postgres.Response
 {
+    /// <summary>
+    /// Basic ITunes API Model
+    /// </summary>
     public class ITunesItem
     {
         public string WrapperType { get; set; }

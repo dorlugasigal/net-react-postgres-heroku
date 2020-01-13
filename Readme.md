@@ -12,6 +12,7 @@ the purpose of this is to make a simple search application for Ituens API
  - Hosting with [Heroku Hosting](https://www.heroku.com/home)
  - :whale: The app is fully Dockerized with [Docker](https://www.docker.com/)(Linux)!
  - :musical_note: [ITunes API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/)
+ - :books: SwaggerUI (SwashBuckle)
 
 
 ## Live Demo

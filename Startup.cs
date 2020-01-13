@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using net_react_postgres.Response;
 using net_react_postgres.Postgres;
 using net_react_postgres.Services;
@@ -36,7 +37,10 @@ namespace net_react_postgres
                     });
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper(typeof(Startup));
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Home Assignment", Version = "v1" });
+            });
             services.AddHttpClient<ISearchService<ITunesItem>, ITunesSearchService>();
             services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
             {
@@ -112,6 +116,12 @@ namespace net_react_postgres
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Home Assignment - Interview");
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

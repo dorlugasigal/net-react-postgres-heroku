@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace net_react_postgres.Helpers
 {
+    /// <summary>
+    ///  This Class Provides logic to Paging data, an extension to List Class
+    /// </summary>
+    /// <typeparam name="T"> T could be any type from primitive to classes </typeparam>
     public class PagedList<T> : List<T>
     {
         public int TotalPages { get; private set; }

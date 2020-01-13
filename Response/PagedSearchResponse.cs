@@ -2,6 +2,10 @@
 
 namespace net_react_postgres.Response
 {
+    /// <summary>
+    /// Response of a paged information
+    /// </summary>
+    /// <typeparam name="T"> ITunesItem</typeparam>
     public class PagedSearchResponse<T> : Response where T : class
     {
         public int ResultCount { get; set; }
@@ -12,6 +16,5 @@ namespace net_react_postgres.Response
         public int TotalCount { get; set; }
         public bool HasPrevious => (CurrentPage > 1);
         public bool HasNext => (CurrentPage < TotalPages);
-
     }
 }
