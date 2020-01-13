@@ -25,8 +25,8 @@ the usage of the app is simple:
 - insert a query, search it, and show up to 25 results in a page.
 - add a button for top ten searches (meaning you need to keep track of searches - thats where the database steps in)
 - each item that is shown is clickable and would lead you to another page that would show more information about the item
-- If it’s a video the screen should display the video in the page
-- If it’s a audio the should display the audio player in the page
+- If itâ€™s a video the screen should display the video in the page
+- If itâ€™s a audio the should display the audio player in the page
 
 
 ## Run it!
@@ -35,7 +35,10 @@ in order to run this app locally you will need to follow these steps:
  - Download and install [Git](https://git-scm.com/downloads)
  - open your cli of choice and run `git clone https://github.com/dorlugasigal/net-react-postgres-heroku.git`
  - open the .csproj file in [Visual Studio](https://visualstudio.microsoft.com/downloads/).
- - press F5
+ - press F5, 
+ - at first use npm SHOULD install all packages
+ - but if it doesnt,manually install packages: open the CLI in ClientApp folder and run `npm install`
+
 
 ## Contributing
 
@@ -43,7 +46,7 @@ PRs accepted!
 
 ## License
 
-MIT © Richard McRichface
+MIT Â© Richard McRichface
 
 ## Develop it yourself!
 ### React App with Net Core 2.2.105
