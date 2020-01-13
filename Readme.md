@@ -6,7 +6,8 @@ the purpose of this is to make a simple search application for Ituens API
 
 ## Let's talk about the tech stuff
  - :heart: ASP.NET Core 2.2 Web application 
- - React 16.6  (without hooks and functional components)
+ - :statue_of_liberty: React 16.6  (without hooks and functional components)
+ - :convenience_store: Redux as a State Store
  - PostgresDB database with *Heroku Hosting* when in production
  - Local DB when in Development
  - Hosting with [Heroku Hosting](https://www.heroku.com/home)
